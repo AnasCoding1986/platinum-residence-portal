@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,44 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Custom colors
+				platinum: {
+					50: '#f8f9fa',
+					100: '#e9ebf0',
+					200: '#d6dae2',
+					300: '#b5bcc9',
+					400: '#8e99ab',
+					500: '#6f7c91',
+					600: '#576275',
+					700: '#465061',
+					800: '#3b4352',
+					900: '#343a47',
+					950: '#23272f',
+				},
+				gold: {
+					50: '#fcf9ef',
+					100: '#f6efd1',
+					200: '#ecdc9e',
+					300: '#e2c363',
+					400: '#dab042',
+					500: '#c99a2f',
+					600: '#b07924',
+					700: '#905a21',
+					800: '#774823',
+					900: '#653d23',
+					950: '#3a1f11',
+				},
+				luxury: {
+					blue: '#1e3a8a',
+					darkblue: '#172554',
+					silver: '#CBD5E1',
+					darksilver: '#94A3B8',
+                    platinum: '#e5e7eb',
+                    darkplatinum: '#9ca3af',
+                    gold: '#fbbf24',
+                    darkgold: '#b45309',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,11 +122,68 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					}
+				},
+				'slide-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'zoom-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.95)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out forwards',
+				'fade-out': 'fade-out 0.5s ease-out forwards',
+				'slide-in': 'slide-in 0.5s ease-out forwards',
+				'zoom-in': 'zoom-in 0.3s ease-out forwards',
+				'float': 'float 3s ease-in-out infinite',
+			},
+			backgroundImage: {
+				'gradient-luxury': 'linear-gradient(to right, #172554, #1e3a8a)',
+				'gradient-gold': 'linear-gradient(135deg, #fbbf24 0%, #b45309 100%)',
 			}
 		}
 	},

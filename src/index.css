@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +38,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -96,6 +92,144 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-montserrat antialiased;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cormorant font-semibold;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-platinum-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-platinum-400 rounded-full hover:bg-platinum-500 transition-colors;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-luxury;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-gold;
+  }
+
+  .transition-custom {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .btn-luxury {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium 
+      transition-all duration-300 ease-in-out 
+      bg-luxury-darkblue text-white hover:bg-luxury-blue 
+      focus:outline-none focus:ring-2 focus:ring-luxury-blue focus:ring-offset-2;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium 
+      transition-all duration-300 ease-in-out 
+      border border-luxury-blue text-luxury-blue hover:bg-luxury-blue hover:text-white 
+      focus:outline-none focus:ring-2 focus:ring-luxury-blue focus:ring-offset-2;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium 
+      transition-all duration-300 ease-in-out 
+      bg-gradient-gold text-white hover:shadow-lg hover:shadow-gold-300/20
+      focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+  }
+
+  .card-luxury {
+    @apply bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 
+      hover:shadow-xl hover:translate-y-[-5px];
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .reveal-on-scroll {
+    @apply opacity-0;
+  }
+
+  .reveal-on-scroll.revealed {
+    @apply animate-fade-in;
+  }
+}
+
+/* Custom Font Families */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-cormorant {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Parallax Effect */
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Image lazy loading and blur transition */
+.image-lazy {
+  transition: filter 0.5s ease-out;
+}
+
+.image-lazy.loading {
+  filter: blur(10px);
+}
+
+/* Property card hover effect */
+.property-card:hover .property-image {
+  transform: scale(1.05);
+}
+
+.property-image {
+  transition: transform 0.7s ease;
+}
+
+/* 3D Hover effect */
+.hover-3d {
+  transition: all 0.2s ease;
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale3d(1.02, 1.02, 1.02);
 }
