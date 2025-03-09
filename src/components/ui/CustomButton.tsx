@@ -1,11 +1,14 @@
 
-import { ButtonHTMLAttributes, forwardRef } from "react";
+import { ButtonHTMLAttributes, forwardRef, ElementType } from "react";
 import { cn } from "@/lib/utils";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "outline" | "gold" | "ghost" | "link";
   size?: "sm" | "md" | "lg";
   fullWidth?: boolean;
+  asChild?: boolean;
+  as?: ElementType;
+  href?: string;
 }
 
 const CustomButton = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -15,10 +18,18 @@ const CustomButton = forwardRef<HTMLButtonElement, ButtonProps>(
     variant = "primary", 
     size = "md", 
     fullWidth = false,
+    as: Component = "button",
+    href,
     ...props 
   }, ref) => {
+    // If href is provided and Component is still "button", switch to "a"
+    if (href && Component === "button") {
+      Component = "a";
+    }
+
     return (
-      <button
+      <Component
+        href={href}
         className={cn(
           "relative overflow-hidden rounded-md font-medium transition-all duration-300 ease-out",
           "before:absolute before:inset-0 before:z-0 before:opacity-0 before:transition-opacity before:duration-300",
@@ -34,11 +45,11 @@ const CustomButton = forwardRef<HTMLButtonElement, ButtonProps>(
           fullWidth && "w-full",
           className
         )}
-        ref={ref}
+        ref={Component === "button" ? ref : undefined}
         {...props}
       >
         <span className="relative z-10">{children}</span>
-      </button>
+      </Component>
     );
   }
 );

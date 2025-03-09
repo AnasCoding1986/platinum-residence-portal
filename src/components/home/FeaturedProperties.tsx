@@ -1,9 +1,9 @@
-
 import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import PropertyCard from "../ui/PropertyCard";
 import CustomButton from "../ui/CustomButton";
+import { Link } from "react-router-dom";
 
 // Example featured properties data
 const featuredProperties = [
@@ -83,7 +83,6 @@ const FeaturedProperties = () => {
     });
   };
 
-  // Animation when section comes into view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -105,7 +104,6 @@ const FeaturedProperties = () => {
     };
   }, [controls]);
 
-  // Check scrollable on initial load and resize
   useEffect(() => {
     checkScrollable();
     window.addEventListener("resize", checkScrollable);
@@ -145,7 +143,6 @@ const FeaturedProperties = () => {
         </motion.div>
 
         <div className="relative">
-          {/* Scroll Controls */}
           <div className="absolute -top-16 right-0 flex space-x-2">
             <button
               onClick={() => handleScroll("left")}
@@ -173,7 +170,6 @@ const FeaturedProperties = () => {
             </button>
           </div>
 
-          {/* Properties Scroll Container */}
           <div 
             ref={scrollRef}
             className="flex overflow-x-auto space-x-6 pb-6 hide-scrollbar"
@@ -188,7 +184,11 @@ const FeaturedProperties = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <CustomButton variant="primary" size="lg" as="a" href="/properties">
+          <CustomButton 
+            variant="primary" 
+            size="lg" 
+            href="/properties"
+          >
             View All Properties
             <ChevronRight className="ml-2" size={18} />
           </CustomButton>
