@@ -36,12 +36,12 @@ const PropertyCard = ({
       transition={{ duration: 0.5 }}
       className={`property-card group overflow-hidden rounded-lg bg-white shadow-md 
         hover:shadow-xl transition-all duration-500 ease-in-out ${
-        featured ? "border-2 border-gold-300" : ""
+        featured ? "border-2 border-luxury-accent" : ""
       }`}
     >
       <div className="relative overflow-hidden h-60">
         {featured && (
-          <div className="absolute top-0 right-0 z-10 bg-gold-400 text-white 
+          <div className="absolute top-0 right-0 z-10 bg-luxury-purple text-white 
             px-4 py-1 text-xs font-semibold transform rotate-0 origin-top-right">
             Featured
           </div>
@@ -67,7 +67,7 @@ const PropertyCard = ({
             group-hover:text-luxury-blue transition-colors duration-300 line-clamp-1">
             {title}
           </h3>
-          <p className="text-gold-600 font-semibold text-sm md:text-base">{price}</p>
+          <p className="text-luxury-purple font-semibold text-sm md:text-base">{price}</p>
         </div>
 
         <div className="flex items-center mt-2 text-platinum-500 text-sm">
@@ -92,9 +92,9 @@ const PropertyCard = ({
 
         <Link
           to={`/properties/${id}`}
-          className="mt-4 inline-flex items-center text-sm font-medium text-luxury-blue 
+          className="mt-4 inline-flex items-center text-sm font-medium text-luxury-purple 
             opacity-0 group-hover:opacity-100 transition-opacity duration-300 
-            hover:text-luxury-darkblue"
+            hover:text-luxury-darkpurple"
         >
           View Details
           <ChevronRight size={16} className="ml-1 transition-transform 

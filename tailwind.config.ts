@@ -97,8 +97,9 @@ export default {
 					darksilver: '#94A3B8',
                     platinum: '#e5e7eb',
                     darkplatinum: '#9ca3af',
-                    gold: '#fbbf24',
-                    darkgold: '#b45309',
+                    purple: '#8B5CF6',
+                    darkpurple: '#6D28D9',
+                    accent: '#C084FC',
 				},
 			},
 			borderRadius: {
@@ -183,7 +184,8 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-luxury': 'linear-gradient(to right, #172554, #1e3a8a)',
-				'gradient-gold': 'linear-gradient(135deg, #fbbf24 0%, #b45309 100%)',
+				'gradient-gold': 'linear-gradient(135deg, #8B5CF6 0%, #6D28D9 100%)',
+				'gradient-purple': 'linear-gradient(135deg, #C084FC 0%, #8B5CF6 100%)',
 			}
 		}
 	},

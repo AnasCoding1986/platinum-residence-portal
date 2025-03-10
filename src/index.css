@@ -124,7 +124,7 @@
   }
   
   .text-gradient-gold {
-    @apply bg-clip-text text-transparent bg-gradient-gold;
+    @apply bg-clip-text text-transparent bg-gradient-purple;
   }
 
   .transition-custom {
@@ -148,8 +148,8 @@
   .btn-gold {
     @apply inline-flex items-center justify-center rounded-md px-6 py-3 text-sm font-medium 
       transition-all duration-300 ease-in-out 
-      bg-gradient-gold text-white hover:shadow-lg hover:shadow-gold-300/20
-      focus:outline-none focus:ring-2 focus:ring-gold-400 focus:ring-offset-2;
+      bg-gradient-purple text-white hover:shadow-lg hover:shadow-luxury-purple/20
+      focus:outline-none focus:ring-2 focus:ring-luxury-purple focus:ring-offset-2;
   }
 
   .card-luxury {

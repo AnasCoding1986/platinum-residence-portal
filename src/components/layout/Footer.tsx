@@ -15,6 +15,15 @@ import CustomButton from "../ui/CustomButton";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
+  // Quick links that actually work with the router
+  const quickLinks = [
+    { name: 'About Us', path: '/#about' },
+    { name: 'Properties', path: '/#properties' },
+    { name: 'Services', path: '/#services' },
+    { name: 'Testimonials', path: '/#testimonials' },
+    { name: 'Contact', path: '/#contact' }
+  ];
+  
   return (
     <footer className="bg-luxury-darkblue text-white pt-16 pb-8">
       <div className="container-custom">
@@ -76,15 +85,15 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-cormorant font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['About Us', 'Properties', 'Services', 'Blog', 'Contact'].map((item) => (
-                <li key={item}>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
                   <Link 
-                    to={`/${item.toLowerCase().replace(' ', '-')}`}
+                    to={link.path}
                     className="text-platinum-300 text-sm hover:text-white transition-colors 
                       flex items-center"
                   >
-                    <ArrowRight size={14} className="mr-2 text-luxury-blue" />
-                    {item}
+                    <ArrowRight size={14} className="mr-2 text-luxury-purple" />
+                    {link.name}
                   </Link>
                 </li>
               ))}
@@ -96,19 +105,19 @@ const Footer = () => {
             <h3 className="text-lg font-cormorant font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
-                <MapPin size={18} className="mr-2 mt-0.5 text-luxury-blue flex-shrink-0" />
+                <MapPin size={18} className="mr-2 mt-0.5 text-luxury-purple flex-shrink-0" />
                 <span className="text-sm text-platinum-300">
                   123 Zindabazar Road, Sylhet 3100, Bangladesh
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone size={18} className="mr-2 text-luxury-blue flex-shrink-0" />
+                <Phone size={18} className="mr-2 text-luxury-purple flex-shrink-0" />
                 <a href="tel:+8801712345678" className="text-sm text-platinum-300 hover:text-white transition-colors">
                   +880 1712 345678
                 </a>
               </li>
               <li className="flex items-center">
-                <Mail size={18} className="mr-2 text-luxury-blue flex-shrink-0" />
+                <Mail size={18} className="mr-2 text-luxury-purple flex-shrink-0" />
                 <a href="mailto:info@platinumresidence.com" className="text-sm text-platinum-300 hover:text-white transition-colors">
                   info@platinumresidence.com
                 </a>

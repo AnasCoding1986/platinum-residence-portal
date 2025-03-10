@@ -51,7 +51,7 @@ const Hero = () => {
               PREMIUM REAL ESTATE IN SYLHET
             </h5>
             <h1 className="font-cormorant text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6">
-              Discover Your <span className="text-gradient-gold">Perfect Property</span> in Sylhet
+              Discover Your <span className="bg-gradient-purple bg-clip-text text-transparent">Perfect Property</span> in Sylhet
             </h1>
             <p className="text-platinum-100 text-base sm:text-lg mb-8 max-w-xl">
               Platinum Residence Properties offers an exclusive collection of premium 

@@ -1,3 +1,4 @@
+
 import { useRef, useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { ChevronRight, ChevronLeft } from "lucide-react";
@@ -129,7 +130,7 @@ const FeaturedProperties = () => {
           transition={{ duration: 0.6 }}
           className="mb-12 text-center"
         >
-          <h5 className="inline-block bg-luxury-blue/10 text-luxury-blue px-4 py-1.5 rounded-full 
+          <h5 className="inline-block bg-luxury-purple/10 text-luxury-purple px-4 py-1.5 rounded-full 
             text-xs font-semibold mb-3">
             FEATURED PROPERTIES
           </h5>
@@ -150,7 +151,7 @@ const FeaturedProperties = () => {
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all
                 ${
                   canScrollLeft
-                    ? "bg-luxury-blue text-white hover:bg-luxury-darkblue"
+                    ? "bg-luxury-purple text-white hover:bg-luxury-darkpurple"
                     : "bg-platinum-200 text-platinum-400 cursor-not-allowed"
                 }`}
             >
@@ -162,7 +163,7 @@ const FeaturedProperties = () => {
               className={`w-10 h-10 rounded-full flex items-center justify-center transition-all
                 ${
                   canScrollRight
-                    ? "bg-luxury-blue text-white hover:bg-luxury-darkblue"
+                    ? "bg-luxury-purple text-white hover:bg-luxury-darkpurple"
                     : "bg-platinum-200 text-platinum-400 cursor-not-allowed"
                 }`}
             >

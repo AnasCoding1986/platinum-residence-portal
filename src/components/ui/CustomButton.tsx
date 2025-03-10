@@ -36,7 +36,7 @@ const CustomButton = forwardRef<HTMLButtonElement, ButtonProps>(
           "hover:before:opacity-100 focus:outline-none focus:ring-2 focus:ring-offset-2",
           variant === "primary" && "bg-luxury-darkblue text-white before:bg-luxury-blue focus:ring-luxury-blue",
           variant === "outline" && "border border-luxury-blue text-luxury-blue hover:text-white before:bg-luxury-blue focus:ring-luxury-blue",
-          variant === "gold" && "bg-gradient-gold text-white before:bg-gradient-to-r before:from-gold-400 before:to-gold-600 focus:ring-gold-400",
+          variant === "gold" && "bg-gradient-to-r from-luxury-blue to-luxury-darkblue text-white before:bg-gradient-to-r before:from-luxury-darkblue before:to-luxury-blue focus:ring-luxury-blue",
           variant === "ghost" && "text-luxury-darkblue hover:bg-platinum-100 focus:ring-platinum-200",
           variant === "link" && "bg-transparent underline-offset-4 hover:underline text-luxury-darkblue focus:ring-platinum-200",
           size === "sm" && "text-xs px-3 py-1.5",

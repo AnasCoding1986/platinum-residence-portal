@@ -61,7 +61,7 @@ const AboutPreview = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="section-padding overflow-hidden">
+    <section ref={sectionRef} id="about" className="section-padding overflow-hidden">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Side */}
@@ -84,7 +84,7 @@ const AboutPreview = () => {
             />
             <div 
               className="absolute right-[-5%] top-[-5%] w-[50%] h-[50%] 
-                bg-gradient-gold rounded-lg -z-10 opacity-80"
+                bg-gradient-purple rounded-lg -z-10 opacity-80"
             />
           </motion.div>
 
@@ -95,7 +95,7 @@ const AboutPreview = () => {
             animate={controls}
           >
             <motion.div variants={itemVariants}>
-              <h5 className="inline-block bg-luxury-blue/10 text-luxury-blue px-4 py-1.5 rounded-full 
+              <h5 className="inline-block bg-luxury-purple/10 text-luxury-purple px-4 py-1.5 rounded-full 
                 text-xs font-semibold mb-3">
                 ABOUT US
               </h5>
@@ -120,7 +120,7 @@ const AboutPreview = () => {
             >
               {benefitsList.map((benefit, index) => (
                 <div key={index} className="flex items-start">
-                  <CheckCircle2 className="mr-3 mt-0.5 text-luxury-blue flex-shrink-0" size={18} />
+                  <CheckCircle2 className="mr-3 mt-0.5 text-luxury-purple flex-shrink-0" size={18} />
                   <p className="text-platinum-700">{benefit}</p>
                 </div>
               ))}
