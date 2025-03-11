@@ -3,21 +3,22 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe } from "lucide-react";
 import CustomButton from "../ui/CustomButton";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"en" | "bn">("en");
   const location = useLocation();
+  const { language, setLanguage, translations } = useLanguage();
 
   // Navigation links
   const navLinks = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Properties", path: "/properties" },
-    { name: "Services", path: "/services" },
-    { name: "Blog", path: "/blog" },
-    { name: "Contact", path: "/contact" },
+    { name: translations.navHome[language], path: "/" },
+    { name: translations.navAbout[language], path: "/about" },
+    { name: translations.navProperties[language], path: "/properties" },
+    { name: translations.navServices[language], path: "/services" },
+    { name: translations.navBlog[language], path: "/blog" },
+    { name: translations.navContact[language], path: "/contact" },
   ];
 
   // Handle scroll event
@@ -43,7 +44,7 @@ const Header = () => {
 
   // Toggle language
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "bn" : "en"));
+    setLanguage(language === "en" ? "bn" : "en");
   };
 
   return (

@@ -1,27 +1,19 @@
-
 import { Link } from "react-router-dom";
-import { 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin, 
-  ArrowRight 
-} from "lucide-react";
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight } from "lucide-react";
 import CustomButton from "../ui/CustomButton";
+import { useLanguage } from "../../contexts/LanguageContext";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { language, translations } = useLanguage();
   
-  // Quick links that actually work with the router
+  // Quick links that work with the router
   const quickLinks = [
-    { name: 'About Us', path: '/#about' },
-    { name: 'Properties', path: '/#properties' },
-    { name: 'Services', path: '/#services' },
-    { name: 'Testimonials', path: '/#testimonials' },
-    { name: 'Contact', path: '/#contact' }
+    { name: translations.navAbout[language], path: '/about' },
+    { name: translations.navProperties[language], path: '/properties' },
+    { name: translations.navServices[language], path: '/services' },
+    { name: translations.navBlog[language], path: '/blog' },
+    { name: translations.navContact[language], path: '/contact' }
   ];
   
   return (
