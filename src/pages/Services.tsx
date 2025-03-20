@@ -1,7 +1,19 @@
+
 import { useLanguage } from "../contexts/LanguageContext";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { Building, Key, Home, Paintbrush, Search, Users } from "lucide-react";
+import { 
+  Building, 
+  Key, 
+  Home, 
+  Paintbrush, 
+  Search, 
+  Users, 
+  Award, 
+  Gem, 
+  HeartHandshake, 
+  Headphones 
+} from "lucide-react";
 import CustomButton from "../components/ui/CustomButton";
 import { motion } from "framer-motion";
 
@@ -11,42 +23,48 @@ const Services = () => {
   // Service cards data
   const services = [
     {
-      icon: <Search className="w-10 h-10 text-luxury-purple" />,
+      id: 1,
+      icon: Search,
       title: language === 'en' ? 'Property Search' : 'প্রপার্টি অনুসন্ধান',
       description: language === 'en' 
         ? 'We help you find the perfect property that meets all your requirements and preferences.' 
         : 'আমরা আপনাকে আপনার সমস্ত প্রয়োজনীয়তা এবং পছন্দগুলি পূরণ করে এমন নিখুঁত প্রপার্টি খুঁজে পেতে সাহায্য করি।'
     },
     {
-      icon: <Key className="w-10 h-10 text-luxury-purple" />,
+      id: 2,
+      icon: Key,
       title: language === 'en' ? 'Buying Assistance' : 'ক্রয় সহায়তা',
       description: language === 'en' 
         ? 'Our expert team guides you through the entire property buying process with ease.' 
         : 'আমাদের বিশেষজ্ঞ দল আপনাকে সম্পূর্ণ সম্পত্তি ক্রয় প্রক্রিয়ার মাধ্যমে সহজেই গাইড করে।'
     },
     {
-      icon: <Building className="w-10 h-10 text-luxury-purple" />,
+      id: 3,
+      icon: Building,
       title: language === 'en' ? 'Property Management' : 'প্রপার্টি ম্যানেজমেন্ট',
       description: language === 'en' 
         ? 'We offer comprehensive property management services to maximize your investment returns.' 
         : 'আমরা আপনার বিনিয়োগ রিটার্ন সর্বাধিক করতে ব্যাপক প্রপার্টি ম্যানেজমেন্ট পরিষেবা অফার করি।'
     },
     {
-      icon: <Home className="w-10 h-10 text-luxury-purple" />,
+      id: 4,
+      icon: Home,
       title: language === 'en' ? 'Rental Services' : 'ভাড়া পরিষেবা',
       description: language === 'en' 
         ? 'Find reliable tenants or the perfect rental property with our professional rental services.' 
         : 'আমাদের পেশাদার ভাড়া পরিষেবার মাধ্যমে নির্ভরযোগ্য ভাড়াটে বা নিখুঁত ভাড়া সম্পত্তি খুঁজুন।'
     },
     {
-      icon: <Paintbrush className="w-10 h-10 text-luxury-purple" />,
+      id: 5,
+      icon: Paintbrush,
       title: language === 'en' ? 'Renovation' : 'সংস্কার',
       description: language === 'en' 
         ? 'Transform your property with our expert renovation and interior design services.' 
         : 'আমাদের বিশেষজ্ঞ সংস্কার এবং অভ্যন্তরীণ ডিজাইন পরিষেবাগুলির সাথে আপনার সম্পত্তি রূপান্তর করুন।'
     },
     {
-      icon: <Users className="w-10 h-10 text-luxury-purple" />,
+      id: 6,
+      icon: Users,
       title: language === 'en' ? 'Consultation' : 'পরামর্শ',
       description: language === 'en' 
         ? 'Get expert advice on real estate investments, market trends, and property valuations.' 
@@ -90,27 +108,30 @@ const Services = () => {
         <section className="py-16">
           <div className="container-custom">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {services.map((service) => (
-                <motion.div 
-                  key={service.id}
-                  className="card-luxury h-full"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                >
-                  <div className="p-6">
-                    <div className="w-14 h-14 bg-luxury-purple/10 rounded-full flex items-center justify-center mb-6">
-                      <service.icon className="text-luxury-purple" size={24} />
+              {services.map((service) => {
+                const ServiceIcon = service.icon;
+                return (
+                  <motion.div 
+                    key={service.id}
+                    className="card-luxury h-full"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                  >
+                    <div className="p-6">
+                      <div className="w-14 h-14 bg-luxury-purple/10 rounded-full flex items-center justify-center mb-6">
+                        <ServiceIcon className="text-luxury-purple" size={24} />
+                      </div>
+                      <h3 className="font-cormorant text-2xl font-bold mb-4">{service.title}</h3>
+                      <p className="text-platinum-600 mb-6">{service.description}</p>
+                      <CustomButton variant="gold" size="sm">
+                        {language === "en" ? "Learn More" : "আরও জানুন"}
+                      </CustomButton>
                     </div>
-                    <h3 className="font-cormorant text-2xl font-bold mb-4">{service.title[language]}</h3>
-                    <p className="text-platinum-600 mb-6">{service.description[language]}</p>
-                    <CustomButton variant="gold" size="sm">
-                      {language === "en" ? "Learn More" : "আরও জানুন"}
-                    </CustomButton>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -254,4 +275,3 @@ const Services = () => {
 };
 
 export default Services;
-

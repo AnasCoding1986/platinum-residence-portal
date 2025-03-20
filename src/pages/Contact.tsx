@@ -1,11 +1,20 @@
 import { useLanguage } from "../contexts/LanguageContext";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
+import { 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Clock, 
+  Send, 
+  Facebook, 
+  Twitter, 
+  Instagram, 
+  Linkedin 
+} from "lucide-react";
 import CustomButton from "../components/ui/CustomButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 import Loader2 from "../components/ui/Loader2";
 
 const Contact = () => {

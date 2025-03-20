@@ -3,6 +3,14 @@ import { useLanguage } from "../contexts/LanguageContext";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import CustomButton from "../components/ui/CustomButton";
+import { motion } from "framer-motion";
+import { 
+  Search, 
+  Calendar, 
+  User2, 
+  ChevronLeft, 
+  ChevronRight 
+} from "lucide-react";
 
 const Blog = () => {
   const { language, translations } = useLanguage();
