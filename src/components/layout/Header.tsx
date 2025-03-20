@@ -71,7 +71,7 @@ const Header = () => {
               <h1 className="text-luxury-darkblue font-cormorant text-xl font-bold leading-none">
                 Platinum
               </h1>
-              <p className="text-xs text-luxury-blue tracking-wider">
+              <p className="text-xs text-luxury-darkblue font-medium tracking-wider">
                 RESIDENCE PROPERTIES
               </p>
             </div>
@@ -85,12 +85,12 @@ const Header = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-all duration-300 relative
                   after:absolute after:bottom-0 after:left-0 after:right-0 
-                  after:h-0.5 after:bg-luxury-blue after:scale-x-0 after:origin-center 
+                  after:h-0.5 after:bg-luxury-purple after:scale-x-0 after:origin-center 
                   after:transition-transform after:duration-300
-                  hover:text-luxury-blue hover:after:scale-x-100
+                  hover:text-luxury-purple hover:after:scale-x-100
                   ${
                     location.pathname === link.path
-                      ? "text-luxury-blue after:scale-x-100"
+                      ? "text-luxury-purple after:scale-x-100"
                       : "text-luxury-darkblue"
                   }`}
               >
@@ -103,13 +103,13 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={toggleLanguage}
-              className="flex items-center text-luxury-darkblue hover:text-luxury-blue transition-colors"
+              className="flex items-center text-luxury-darkblue hover:text-luxury-purple transition-colors"
             >
               <Globe size={18} className="mr-1" />
               <span className="text-sm font-medium">{language === "en" ? "EN" : "BN"}</span>
               <ChevronDown size={16} className="ml-1" />
             </button>
-            <CustomButton variant="primary" size="sm">
+            <CustomButton variant="gold" size="sm">
               Get In Touch
             </CustomButton>
           </div>
@@ -118,13 +118,13 @@ const Header = () => {
           <div className="flex lg:hidden items-center">
             <button
               onClick={toggleLanguage}
-              className="mr-4 text-luxury-darkblue hover:text-luxury-blue transition-colors"
+              className="mr-4 text-luxury-darkblue hover:text-luxury-purple transition-colors"
             >
               <Globe size={20} />
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-luxury-darkblue hover:text-luxury-blue transition-colors"
+              className="text-luxury-darkblue hover:text-luxury-purple transition-colors"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -147,15 +147,15 @@ const Header = () => {
                 className={`text-sm font-medium py-2 px-4 rounded-md transition-colors 
                   ${
                     location.pathname === link.path
-                      ? "bg-luxury-blue/10 text-luxury-blue"
-                      : "text-luxury-darkblue hover:bg-luxury-blue/5 hover:text-luxury-blue"
+                      ? "bg-luxury-purple/10 text-luxury-purple"
+                      : "text-luxury-darkblue hover:bg-luxury-purple/5 hover:text-luxury-purple"
                   }`}
               >
                 {link.name}
               </Link>
             ))}
             <div className="pt-3 border-t border-platinum-100">
-              <CustomButton variant="primary" fullWidth>
+              <CustomButton variant="gold" fullWidth>
                 Get In Touch
               </CustomButton>
             </div>

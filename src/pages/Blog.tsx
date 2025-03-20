@@ -80,104 +80,164 @@ const Blog = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-grow pt-20">
+      <motion.main 
+        className="flex-grow pt-24 pb-16"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-luxury-darkblue to-luxury-blue py-16 text-white">
-          <div className="container-custom">
-            <h1 className="text-4xl md:text-5xl font-cormorant font-bold mb-4">
-              {language === 'en' ? 'Latest Updates' : 'সর্বশেষ আপডেট'}
-            </h1>
-            <p className="text-lg max-w-2xl">
-              {language === 'en' 
-                ? 'Discover the latest trends, insights, and news about the real estate market in Sylhet.' 
-                : 'সিলেটে রিয়েল এস্টেট বাজারের সর্বশেষ প্রবণতা, অন্তর্দৃষ্টি এবং খবর আবিষ্কার করুন।'}
-            </p>
-          </div>
-        </div>
-
-        {/* Blog Posts Grid */}
-        <div className="container-custom py-16">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post) => (
-              <article key={post.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
-                <div className="relative h-48 overflow-hidden">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute top-4 right-4 bg-luxury-purple text-white text-xs font-medium py-1 px-2 rounded">
-                    {post.category}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center text-xs text-gray-500 mb-2">
-                    <span>{post.date}</span>
-                    <span className="mx-2">•</span>
-                    <span>{post.author}</span>
-                  </div>
-                  <h3 className="text-xl font-cormorant font-bold text-luxury-darkblue mb-2 hover:text-luxury-purple transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm text-gray-600 mb-4 line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  <CustomButton variant="link" size="sm">
-                    {language === 'en' ? 'Read More' : 'আরও পড়ুন'} →
-                  </CustomButton>
-                </div>
-              </article>
-            ))}
+        <section className="bg-luxury-darkblue py-16 md:py-24 relative overflow-hidden">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute h-80 w-80 rounded-full bg-white/20 -top-40 -left-20" />
+            <div className="absolute h-60 w-60 rounded-full bg-white/20 top-40 right-20" />
+            <div className="absolute h-40 w-40 rounded-full bg-white/20 bottom-10 left-1/3" />
           </div>
           
-          {/* Pagination */}
-          <div className="mt-12 flex justify-center">
-            <div className="flex items-center space-x-2">
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-md border border-platinum-200 text-gray-500 hover:border-luxury-purple hover:text-luxury-purple transition-colors">
-                &laquo;
-              </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-md bg-luxury-purple text-white">
-                1
-              </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-md border border-platinum-200 text-gray-500 hover:border-luxury-purple hover:text-luxury-purple transition-colors">
-                2
-              </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-md border border-platinum-200 text-gray-500 hover:border-luxury-purple hover:text-luxury-purple transition-colors">
-                3
-              </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-md border border-platinum-200 text-gray-500 hover:border-luxury-purple hover:text-luxury-purple transition-colors">
-                &raquo;
-              </a>
+          <div className="container-custom relative z-10">
+            <div className="max-w-3xl mx-auto text-center">
+              <h1 className="font-cormorant text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                Latest <span className="text-gradient-gold">Insights</span> & News
+              </h1>
+              <p className="text-platinum-100 text-lg mb-8">
+                {language === "en" 
+                  ? "Stay updated with the latest trends, news and insights from the real estate market in Sylhet."
+                  : "সিলেটের রিয়েল এস্টেট মার্কেটের সর্বশেষ ট্রেন্ড, নিউজ এবং ইনসাইটগুলি সম্পর্কে আপডেট থাকুন।"}
+              </p>
+              <div className="flex justify-center">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder={language === "en" ? "Search articles..." : "প্রবন্ধ অনুসন্ধান করুন..."}
+                    className="w-full md:w-80 pl-4 pr-10 py-3 bg-white/10 text-white placeholder:text-platinum-300 
+                      rounded-lg border border-white/20 focus:border-luxury-blue focus:outline-none transition-all"
+                  />
+                  <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-platinum-300" size={18} />
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        
-        {/* Newsletter Section */}
-        <div className="bg-platinum-100 py-16">
+        </section>
+
+        {/* Blog Posts */}
+        <section className="py-16">
           <div className="container-custom">
-            <div className="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-lg text-center">
-              <h2 className="text-3xl font-cormorant font-bold text-luxury-darkblue mb-4">
-                {language === 'en' ? 'Subscribe to Our Newsletter' : 'আমাদের নিউজলেটার সাবস্ক্রাইব করুন'}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {blogPosts.map((post) => (
+                <motion.article 
+                  key={post.id}
+                  className="card-luxury flex flex-col h-full"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                >
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={post.image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4 bg-luxury-purple text-white text-xs font-medium py-1 px-3 rounded-full">
+                      {post.category}
+                    </div>
+                  </div>
+                  <div className="flex-grow p-6">
+                    <div className="flex items-center text-sm text-platinum-500 mb-3">
+                      <Calendar size={14} className="mr-1" />
+                      <span>{post.date}</span>
+                      <span className="mx-2">•</span>
+                      <User2 size={14} className="mr-1" />
+                      <span>{post.author}</span>
+                    </div>
+                    <h3 className="font-cormorant text-xl font-bold mb-3">{post.title}</h3>
+                    <p className="text-platinum-600 text-sm mb-4">{post.excerpt}</p>
+                    <CustomButton variant="gold" size="sm" className="mt-auto">
+                      {language === "en" ? "Read More" : "আরও পড়ুন"}
+                    </CustomButton>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <div className="mt-12 flex justify-center">
+              <nav className="inline-flex rounded-md shadow">
+                <a
+                  href="#"
+                  className="relative inline-flex items-center rounded-l-md px-3 py-2 text-sm font-medium 
+                    bg-white text-platinum-900 border border-platinum-200 hover:bg-platinum-50"
+                >
+                  <ChevronLeft size={16} className="mr-1" />
+                  Prev
+                </a>
+                <a
+                  href="#"
+                  className="relative inline-flex items-center px-3 py-2 text-sm font-medium 
+                    bg-luxury-purple text-white border border-luxury-purple"
+                >
+                  1
+                </a>
+                <a
+                  href="#"
+                  className="relative inline-flex items-center px-3 py-2 text-sm font-medium 
+                    bg-white text-platinum-900 border border-platinum-200 hover:bg-platinum-50"
+                >
+                  2
+                </a>
+                <a
+                  href="#"
+                  className="relative inline-flex items-center px-3 py-2 text-sm font-medium 
+                    bg-white text-platinum-900 border border-platinum-200 hover:bg-platinum-50"
+                >
+                  3
+                </a>
+                <a
+                  href="#"
+                  className="relative inline-flex items-center rounded-r-md px-3 py-2 text-sm font-medium 
+                    bg-white text-platinum-900 border border-platinum-200 hover:bg-platinum-50"
+                >
+                  Next
+                  <ChevronRight size={16} className="ml-1" />
+                </a>
+              </nav>
+            </div>
+          </div>
+        </section>
+
+        {/* Newsletter Section */}
+        <section className="py-16 bg-platinum-50">
+          <div className="container-custom">
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="font-cormorant text-3xl md:text-4xl font-bold mb-4">
+                {language === "en" 
+                  ? "Subscribe to Our Newsletter" 
+                  : "আমাদের নিউজলেটার সাবস্ক্রাইব করুন"}
               </h2>
-              <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                {language === 'en' 
-                  ? 'Stay updated with the latest real estate news, market trends, and exclusive property listings.' 
-                  : 'সর্বশেষ রিয়েল এস্টেট নিউজ, মার্কেট ট্রেন্ড এবং এক্সক্লুসিভ প্রপার্টি লিস্টিং সম্পর্কে আপডেট থাকুন।'}
+              <p className="text-platinum-600 mb-8 max-w-2xl mx-auto">
+                {language === "en"
+                  ? "Get the latest real estate insights and news straight to your inbox. We'll never spam you."
+                  : "সরাসরি আপনার ইনবক্সে সর্বশেষ রিয়েল এস্টেট ইনসাইট এবং নিউজ পান। আমরা আপনাকে কখনও স্প্যাম করব না।"}
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-center max-w-md mx-auto">
                 <input
                   type="email"
-                  placeholder={language === 'en' ? "Your email address" : "আপনার ইমেইল ঠিকানা"}
-                  className="flex-grow px-4 py-3 rounded-md border border-platinum-300 focus:border-luxury-purple focus:outline-none"
+                  placeholder={language === "en" ? "Your email address" : "আপনার ইমেইল ঠিকানা"}
+                  className="flex-grow px-4 py-3 rounded-md sm:rounded-r-none border border-platinum-300 
+                    focus:outline-none focus:ring-1 focus:ring-luxury-blue mb-3 sm:mb-0"
                 />
-                <CustomButton variant="purple" size="md">
-                  {language === 'en' ? 'Subscribe' : 'সাবস্ক্রাইব'}
+                <CustomButton 
+                  variant="gold" 
+                  className="sm:rounded-l-none"
+                >
+                  {language === "en" ? "Subscribe" : "সাবস্ক্রাইব করুন"}
                 </CustomButton>
               </div>
             </div>
           </div>
-        </div>
-      </main>
+        </section>
+      </motion.main>
       <Footer />
     </div>
   );

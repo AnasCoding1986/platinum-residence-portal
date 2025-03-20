@@ -7,6 +7,7 @@ import FeaturedProperties from "../components/home/FeaturedProperties";
 import AboutPreview from "../components/home/AboutPreview";
 import TestimonialsCarousel from "../components/home/TestimonialsCarousel";
 import ContactCta from "../components/home/ContactCta";
+import { motion } from "framer-motion";
 
 const Index = () => {
   // Scroll to top on page load
@@ -17,13 +18,18 @@ const Index = () => {
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
-      <main className="flex-grow">
+      <motion.main 
+        className="flex-grow"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <Hero />
         <FeaturedProperties />
         <AboutPreview />
         <TestimonialsCarousel />
         <ContactCta />
-      </main>
+      </motion.main>
       <Footer />
     </div>
   );
